@@ -1,0 +1,28 @@
+
+**********************************************************
+Support for Dell 1355cn (clone of Xerox WorkCentre 6015N)
+Dell 1355cn is supported by the foo2hbpl2
+**********************************************************
+
+https://ubuntuforums.org/showthread.php?t=1776861
+
+As Linux driver for Dell 1355cnw the one for Xerox WorkCentre 6015N can be used 
+Dell does not provide Linux drivers for the Dell 1355cnw (even if there were some available!).
+But as the 1355cnw is almost a clone of the Xerox WorkCentre 6015N the Xerox drivers can be used.
+See:
+http://www.support.xerox.com/support...ileLanguage=en
+
+
+For x64 systems there is a problem with the drivers but also a HowTo fix it ....
+http://www.bertol.de/tiki-index.php?...ontent&no_bl=y
+
+
+*********************************************************
+foo2hbpl:  	a linux printer driver for HBPL protocol
+*********************************************************
+
+http://foo2hbpl.rkkda.com
+
+e.g. Dell 1355, Dell C1765nfw, Epson AcuLaser M1400, Epson AcuLaser CX17NF, Fuji Xerox DocuPrint CM205, Fuji Xerox DocuPrint M215, Fuji Xerox DocuPrint P205, Xerox Phaser 3010, Xerox Phaser 3040, Xerox WorkCentre 3045, Xerox WorkCentre 6015
+
+
