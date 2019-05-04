@@ -26,3 +26,11 @@ http://foo2hbpl.rkkda.com
 e.g. Dell 1355, Dell C1765nfw, Epson AcuLaser M1400, Epson AcuLaser CX17NF, Fuji Xerox DocuPrint CM205, Fuji Xerox DocuPrint M215, Fuji Xerox DocuPrint P205, Xerox Phaser 3010, Xerox Phaser 3040, Xerox WorkCentre 3045, Xerox WorkCentre 6015
 
 
+
+******
+ BUGS
+******
+
+Xerox WorkCentre 6015 wrong colors cups 1.5.2
+
+https://bugs.launchpad.net/ubuntu/+source/cups/+bug/984424
