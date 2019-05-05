@@ -5,3 +5,11 @@ MySQL Connector / JDBC downloaded from Oracle
 Extracted to 
 
 /opt/mysql-connector-c++-8.0.16-linux-glibc2.12-x86-64bit
+
+
+To Compile the examples, please set LD_LIBRARY_PATH first:
+
+export LD_LIBRARY_PATH=/opt/mysql-connector-c++-8.0.16-linux-glibc2.12-x86-64bit/lib64     
+ida@vps475671:~/ida-print-kiosk/mysql$ make cppconn-ex1
+g++  -I/opt/mysql-connector-c++-8.0.16-linux-glibc2.12-x86-64bit/include/jdbc -L/opt/mysql-connector-c++-8.0.16-linux-glibc2.12-x86-64bit/lib64 -lmysqlcppconn  cppconn-ex1.cc   -o cppconn-ex1
+
