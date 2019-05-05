@@ -1,10 +1,17 @@
-MySQL Connector / JDBC downloaded from Oracle
+PRE-REQUISITES
+
+sudo apt-get install libboost-all-dev
+
+
+To INSTALL the MySQL Connector for C++ (JDBC)
+
+- Download it from Oracle
 
 https://dev.mysql.com/downloads/connector/cpp/
 
 https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-8.0.16-linux-glibc2.12-x86-64bit.tar.gz
 
-Extracted to 
+- Extract it to
 
 /opt/mysql-connector-c++-8.0.16-linux-glibc2.12-x86-64bit
 
