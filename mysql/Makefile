@@ -5,7 +5,7 @@ LD_LIBRARY_PATH=/opt/mysql-connector-c++-8.0.16-linux-glibc2.12-x86-64bit/lib64
 
 all: photocopy test-photocopy cppconn-ex1 test-ex1 clean-ex1 
 
-test-ex1:
+test-ex1: cppconn-ex1
 	./cppconn-ex1
 
 test-photocopy:
