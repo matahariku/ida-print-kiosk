@@ -9,7 +9,7 @@ all: photocopy test-photocopy cppconn-ex1 test-ex1 clean-ex1
 test-ex2:
 	./cppconn-ex2
 
-test-ex1:
+test-ex1: cppconn-ex1
 	./cppconn-ex1
 
 test-photocopy:
