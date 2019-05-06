@@ -1,11 +1,12 @@
 DESCRIPTION
 
 ida-print-kiosk is a C++/php program to handle:
-- printing on a local USB
-- counting number of pages printed
-- accounting of number of pages printed
-- database of customer accounts
-- back-end (php) via web browser to manage users and their credits
+- printing on a local USB (C++)
+- counting number of pages printed (C++)
+- accounting of number of pages printed (C++)
+- database of customer accounts (mariadb)
+- back-end via web browser to manage users and their credits (php web app)
+- user may consults the credit/debit balance of his account (php web app)
 
 LICENSE
 
