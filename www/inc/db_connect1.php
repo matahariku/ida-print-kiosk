@@ -1,9 +1,9 @@
 <?php
 
 $host="localhost";
-$user="efarida";
-$password="Formation2019";
-$db_name="intranet-dev";
+$user="ida";
+$password="bengkulu";
+$db_name="ida";
 
 //connexion a la base de donnees
 $base = mysqli_connect("$host","$user","$password","$db_name");
