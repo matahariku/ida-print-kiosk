@@ -38,78 +38,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <td colspan="3"><strong>  Panneaux de Recherche : </strong></td>
 </tr>
 <tr>
-<form name="Utilisateur" method="post" action="utilisateur.php">
-<td width="294"><Center><input type="submit" name="Submit" value="Rechercher un Utilisateur"></Center></td>
+<form name="Historique" method="post" action="utilisateur.php">
+<td width="294"><Center><input type="submit" name="Submit" value="Historique"></Center></td>
 </tr>
 </form>
 <tr>
-<form name="Lieu" method="post" action="Lieu.php">
-<td width="294"><Center><input type="submit" name="Submit" value="Rechercher un Lieu"></Center></td>
-</tr>
-</form>
-<tr>
-<form name="Ordinateur" method="post" action="Ordinateur.php">
-<td width="294"><Center><input type="submit" name="Submit" value="Rechercher un Ordinateur"></Center></td>
-</tr>
-</form>
-<tr>
-<form name="Ecran" method="post" action="Ecran.php">
-<td width="294"><Center><input type="submit" name="Submit" value="Rechercher un Ecran"></Center></td>
-</tr>
-</form>
-<tr>
-<form name="Service" method="post" action="Service.php">
-<td width="294"><Center><input type="submit" name="Submit" value="Rechercher un Service Poste"></Center></td>
-</tr>
-</form>
-<tr>
-<form name="Imprimante" method="post" action="Imprimante.php">
-<td width="294"><Center><input type="submit" name="Submit" value="Rechercher un Imprimante"></Center></td>
-</tr>
-</form>
-<tr>
-<form name="Service_Imprimante" method="post" action="Service_Imprimante.php">
-<td width="294"><Center><input type="submit" name="Submit" value="Rechercher un Service Imprimante"></Center></td>
-</tr>
-</form>
-<tr>
-<form name="NAS" method="post" action="NAS.php">
-<td width="294"><Center><input type="submit" name="Submit" value="Rechercher un NAS"></Center></td>
-</tr>
-</form>
-<tr>
-<form name="Onduleur" method="post" action="Onduleur.php">
-<td width="294"><Center><input type="submit" name="Submit" value="Rechercher un Onduleur"></Center></td>
-</tr>
-</form>
-<tr>
-<form name="Projecteur" method="post" action="Projecteur.php">
-<td width="294"><Center><input type="submit" name="Submit" value="Rechercher un Projecteur"></Center></td>
-</tr>
-</form>
-<tr>
-<form name="Serveur" method="post" action="serveur.php">
-<td width="294"><Center><input type="submit" name="Submit" value="Rechercher un Serveur"></Center></td>
-</tr>
-</form>
-<tr>
-<form name="Switch" method="post" action="Switch.php">
-<td width="294"><Center><input type="submit" name="Submit" value="Rechercher un Switch"></Center></td>
-</tr>
-</form>
-<tr>
-<form name="Telephone" method="post" action="Telephone.php">
-<td width="294"><Center><input type="submit" name="Submit" value="Rechercher un Telephone"></Center></td>
-</tr>
-</form>
-<tr>
-<form name="Firewall" method="post" action="Firewall.php">
-<td width="294"><Center><input type="submit" name="Submit" value="Rechercher un Firewall"></Center></td>
-</tr>
-</form>
-<tr>
-<form name="Wifi" method="post" action="Wifi.php">
-<td width="294"><Center><input type="submit" name="Submit" value="Rechercher un Wifi"></Center></td>
+<form name="Solde" method="post" action="Lieu.php">
+<td width="294"><Center><input type="submit" name="Submit" value="Solde"></Center></td>
 </tr>
 </form>
 </table>
@@ -122,7 +57,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 <HR width="10">
 
-<center><address>Fait le 12 Mars 2019<br>
+<center><address>Fait le 06 Mai 2019<br>
   au CESI de Bordeaux</address></center>
 
     <p align="center">
