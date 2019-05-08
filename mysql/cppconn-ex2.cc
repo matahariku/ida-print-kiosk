@@ -60,7 +60,8 @@ try {
   con->setSchema("ida");
 
   stmt = con->createStatement();
-  res = stmt->executeQuery("SELECT 'Hello World!' AS _message");
+  //res = stmt->executeQuery("SELECT 'Hello World!' AS _message");
+  res = stmt->executeQuery("SELECT 'nom_prenom' from user where nom_prenom='KALOUDOFF Olivier' AS _message");
   while (res->next()) {
     cout << "\t... MySQL replies: ";
     /* Access column data by alias or column name */
