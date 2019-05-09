@@ -22,7 +22,6 @@ https://mariadb.com/kb/en/library/configuration-settings-for-building-connectorc
  CONNECTOR C - COMPILATION / INSTALL
 *************************************
 
-DST_USR=kalou
 cd /opt
 sudo git clone https://github.com/MariaDB/mariadb-connector-c.git
 cd mariadb-connector-c
@@ -34,6 +33,11 @@ cmake ../mariadb-connector-c -DCMAKE_INSTALL_PREFIX=/opt/mariadb-connector-3.0.8
 make
 sudo make install
 
+*************************************
+ LIB MYSQL CLIENT C - INSTALL
+*************************************
+
+sudo apt-get install libmariadbclient-dev libmariadbclient-dev-compat
 
 *************************************
  CONNECTOR C++ - DOWNLOAD
@@ -42,5 +46,14 @@ sudo make install
 cd /opt
 sudo git clone https://github.com/viaduck/mariadbpp.git
 sudo mkdir mariadbpp-build
-cd mariadbpp-build
+cd /opt/mariadbpp
+git submodule update --init
+
+
+(-DMAKE_INSTALL_PREFIX not used by the project, so not used)
 cmake ../mariadbpp
+make
+
+kalou@vps475671:/opt/mariadbpp-build$ ls -ltr /opt/mariadbpp-build/libmariadbclientpp.a
+-rw-rw-r-- 1 kalou kalou 1375524 May  9 16:40 /opt/mariadbpp-build/libmariadbclientpp.a
+
