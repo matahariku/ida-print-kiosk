@@ -1,0 +1,46 @@
+COMPILATION / INSTALLATION
+ - DE MARIADB CONNECTOR POUR C
+ - DE MARIADB CONNECTOR POUR C++ (base sur le connecteur C)
+
+
+************************************************
+ CONNECTEUR C -  PRE REQUIS pour la COMPILATION 
+************************************************
+
+https://mariadb.com/kb/en/library/prerequisites-for-building-connectorc-from-source
+
+sudo apt-get install cmake
+
+******************************************
+ CONNECTEUR C - CONFIGURATION DES OPTIONS
+******************************************
+
+https://mariadb.com/kb/en/library/configuration-settings-for-building-connectorc
+
+
+*************************************
+ CONNECTOR C - COMPILATION / INSTALL
+*************************************
+
+DST_USR=kalou
+cd /opt
+sudo git clone https://github.com/MariaDB/mariadb-connector-c.git
+cd mariadb-connector-c
+git checkout v3.0.8-release
+mkdir ../mariadb-connector-c-build
+cd ../mariadb-connector-c-build
+rm -rf CMakeFiles
+cmake ../mariadb-connector-c -DCMAKE_INSTALL_PREFIX=/opt/mariadb-connector-3.0.8
+make
+sudo make install
+
+
+*************************************
+ CONNECTOR C++ - DOWNLOAD
+*************************************
+
+cd /opt
+sudo git clone https://github.com/viaduck/mariadbpp.git
+sudo mkdir mariadbpp-build
+cd mariadbpp-build
+cmake ../mariadbpp
