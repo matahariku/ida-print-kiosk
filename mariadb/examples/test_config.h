@@ -1,7 +1,5 @@
 #ifndef MARIADBCLIENTPP_TEST_CONFIG_H
 #define MARIADBCLIENTPP_TEST_CONFIG_H
-	int main()
-	{
 namespace mariadb {
     namespace testing {
 	
@@ -16,6 +14,5 @@ namespace mariadb {
             static constexpr const char *Database = "ida";
         };
     }
-}
 }
 #endif //MARIADBCLIENTPP_TEST_CONFIG_H
