@@ -59,6 +59,16 @@ cmake -DCMAKE_INSTALL_PREFIX=/opt -P cmake_install.cmake
  EXAMPLES COMPILE/TEST
 ************************
 
+REQUIRES googletest
+
+cd /opt
+git clone https://github.com/google/googletest.git
+cd googletest
+cmake .
+make
+cmake -DCMAKE_INSTALL_PREFIX=/opt -P cmake_install.cmake
+
+
 https://github.com/viaduck/mariadbpp/tree/master/src
 
 LDFLAGS=-Wl,-rpath,/opt/lib/mariadb -L/opt/lib/mariadb -lmariadb -ldl -lm -lpthread -lssl -lcrypto
