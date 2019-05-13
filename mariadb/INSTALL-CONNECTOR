@@ -56,22 +56,21 @@ cmake -DCMAKE_INSTALL_PREFIX=/opt -P cmake_install.cmake
 
 
 ************************
- EXAMPLES COMPILE/TEST
+ CONNECTOR MARIACPP
 ************************
 
-REQUIRES googletest
-
 cd /opt
-git clone https://github.com/google/googletest.git
-cd googletest
-cmake .
+git clone https://github.com/Roslaniec/MariaCpp.git
+cd MariaCpp
+
+kalou@vps475671:/opt/MariaCpp$ gd
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+
+-ADD_LIBRARY(mariacpp STATIC ${SRC})
++# OKA
++ADD_LIBRARY(mariacpp SHARED ${SRC})
+
+
+export PATH=/opt/bin:$PATH ; rm -rf CMakeFiles/ CMakeCache.txt  ; cmake . -DCMAKE_INSTALL_PREFIX=/opt
 make
-cmake -DCMAKE_INSTALL_PREFIX=/opt -P cmake_install.cmake
-
-
-https://github.com/viaduck/mariadbpp/tree/master/src
-
-LDFLAGS=-Wl,-rpath,/opt/lib/mariadb -L/opt/lib/mariadb -lmariadb -ldl -lm -lpthread -lssl -lcrypto
-CPPFLAGS=-I/opt/include -I/opt/include/mariadb++ -I/opt/include/mariadb/mysql -I/opt/include/mariadb -I/opt/mariadbpp/src
-
-
+sudo make install
