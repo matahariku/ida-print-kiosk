@@ -54,3 +54,4 @@ include_directories(
   ${CMAKE_SOURCE_DIR})
 
 add_executable(test-mariaCpp test-mariaCpp.cpp)
+add_executable(bandung bandung.cpp)
