@@ -1,0 +1,54 @@
+
+***************************************************
+ Example to compile test-mariaCpp.cpp using CMAKE
+***************************************************
+
+*****************
+ Required files
+*****************
+
+test-mariaCpp.cpp 
+CMakeLists.txt
+
+*************************************
+ define test-mariaCpp.cpp
+ as an executable in CMakeLists.txt
+*************************************
+
+kalou@vps475671:~/ida-print-kiosk/mariadb/examples-MariaCpp$ grep test-mariaCpp.cpp CMakeLists.txt
+add_executable(test-mariaCpp test-mariaCpp.cpp)
+
+
+********************************************
+ set CXXFLAGS (for g++ pre-processor flags)
+********************************************
+
+export CXXFLAGS=$(/opt/bin/mariadb_config --cflags)
+
+***************************
+ set LDFLAGS (for linker)
+***************************
+
+export LDFLAGS="$(/opt/bin/mariadb_config --libs) -L/opt/lib"
+
+
+********************************************
+ - purge Cmake cache 
+ - regenerate makefiles
+ - build the executable using "make"
+********************************************
+
+rm -rf CMakeFiles/ CMakeCache.txt  ; cmake . ; make VERBOSE=1
+
+***********************************************
+ set the path to shared libraries for run time
+***********************************************
+
+export LD_LIBRARY_PATH=/opt/lib:/opt/lib/mariadb
+
+
+**********
+ Execute
+**********
+
+./test-mariaCpp
