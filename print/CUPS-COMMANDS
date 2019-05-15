@@ -1,0 +1,24 @@
+
+#
+# Shows the accepting state of printer queues.
+#
+
+root@ambun-LIFEBOOK-S710 /var/log/cups # lpstat -a
+Dell_1355cn_Color_MFP accepting requests since Wed May 15 10:26:53 2019
+
+
+#
+# Show "completed" jobs (by default, without -W argument, shows "uncompleted" jobs)
+# 
+
+root@ambun-LIFEBOOK-S710 /var/log/cups # lpstat -W completed
+Dell_1355cn_Color_MFP-6 root              1024   Wed May 15 10:26:53 2019
+Dell_1355cn_Color_MFP-5 root              1024   Wed May 15 10:20:17 2019
+
+
+#
+# Get the number of pages effectivelly printed (col = 6 )
+#
+root@ambun-LIFEBOOK-S710 /var/log/cups # tail -1 page_log
+Dell_1355cn_Color_MFP root 6 [15/May/2019:10:26:45 +0200] 1 1 - localhost Test Page - -
+
