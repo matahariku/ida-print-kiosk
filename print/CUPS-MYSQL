@@ -2,7 +2,9 @@
 The table "page_log" is created from the file /var/log/cups/page_log
 It contains page log ***that have been successfully printed***
 
-FROM "man cupsd-logs":
+***********************
+ FROM "man cupsd-logs"
+***********************
 
    PAGE LOG FILE FORMAT
        The page_log file lists each page or group of pages that are sent to a printer.  By default, each line contains the following
@@ -53,4 +55,10 @@ FROM "man cupsd-logs":
 
        The sides field contains a copy of the sides attribute provided with the IPP Create-Job or Print-Job requests or "-" if  none
        was provided.
+
+*****
+ SQL
+*****
+
+CREATE TABLE `ida`.`page_log` ( `printer` VARCHAR(64) NOT NULL , `user` VARCHAR(32) NOT NULL , `job_id` BIGINT NOT NULL , `date_time` DATE NOT NULL , `page_number` INT NOT NULL , `num_copies` INT NOT NULL , `job_billing` VARCHAR(32) NOT NULL , `job_originating_hostname` VARCHAR(64) NOT NULL , `job_name` VARCHAR(64) NOT NULL , `media` VARCHAR(32) NOT NULL , `sides` INT NOT NULL ) ENGINE = MyISAM;
 
