@@ -30,6 +30,13 @@ May  9 10:59:25 ambun-LIFEBOOK-S710 kernel: [ 2426.699147] usbcore: registered n
 May  9 11:21:19 ambun-LIFEBOOK-S710 kernel: [ 3740.517360] perf interrupt took too long (5004 > 5000), lowering kernel.perf_event_max_sample_rate to 25000
 
 
+************************************************
+ Installation du sous systeme d'impression CUPS
+************************************************
+
+sudo apt-get install cups
+
+
 **********************************************
  Download/Install du driver sous /opt/foo2zjs
 **********************************************
