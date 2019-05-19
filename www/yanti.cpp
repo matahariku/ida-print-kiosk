@@ -13,13 +13,13 @@ int query_state;
 
 int main()
 {
-   const char *uri="tcp://127.0.0.1:3306/ida";
-   const char *user="ida";
-   const char *passwd="bengkulu";
-   const char *database="blsi";
+   const char *server="students";
+   const char *user="*****";
+   const char *password="********";
+   const char *database="*****";
 
    mysql_init(&mysql);
-   conn=mysql_real_connect(&mysql, server, user, passwd, database, 0, 0, 0);
+   conn=mysql_real_connect(&mysql, server, user, password, database, 0, 0, 0);
    if(conn==NULL)
    {
        cout<<mysql_error(&mysql)<<endl<<endl;
@@ -82,5 +82,4 @@ int main()
    mysql_close(conn);
 
    return 0;
-}
 

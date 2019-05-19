@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ida/ida-print-kiosk/mariadb/examples-MariaCpp/Olivier.cpp
+mariacpp/lib.hpp
+-
+mariacpp/connection.hpp
+-
+mariacpp/exception.hpp
+-
+mariacpp/prepared_stmt.hpp
+-
+mariacpp/time.hpp
+-
+mariacpp/uri.hpp
+-
+cstdlib
+-
+iostream
+-
+memory
+-
+
