@@ -1,0 +1,7 @@
+/home/ida/ida-print-kiosk/mariadb/examples-MariaCpp/CMakeFiles/rebuild_cache.dir
+/home/ida/ida-print-kiosk/mariadb/examples-MariaCpp/CMakeFiles/edit_cache.dir
+/home/ida/ida-print-kiosk/mariadb/examples-MariaCpp/CMakeFiles/Olivier.dir
+/home/ida/ida-print-kiosk/mariadb/examples-MariaCpp/CMakeFiles/yanti.dir
+/home/ida/ida-print-kiosk/mariadb/examples-MariaCpp/CMakeFiles/test-mariaCpp.dir
+/home/ida/ida-print-kiosk/mariadb/examples-MariaCpp/CMakeFiles/bengkulu.dir
+/home/ida/ida-print-kiosk/mariadb/examples-MariaCpp/CMakeFiles/bandung.dir
