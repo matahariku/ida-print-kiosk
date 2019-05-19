@@ -59,7 +59,7 @@ make cups
 ***************************************
 
 Aller a 
-http://localhost:1631/admin
+http://localhost:631/admin
 
 -> New Printer
    Local Printer
