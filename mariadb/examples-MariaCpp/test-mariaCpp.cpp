@@ -28,7 +28,7 @@ int main()
         Connection conn;
         conn.connect(Uri(uri), user, passwd);
 
-        conn.query("CREATE TEMPORARY TABLE test "
+        conn.query("CREATE  TABLE Olivier_Cinta_Ida "
                     "(i INT, s CHAR(15), d DATETIME)");
         std::auto_ptr<PreparedStatement> stmt(
             conn.prepare("INSERT INTO test (i,s,d) values(?,?,?)"));
