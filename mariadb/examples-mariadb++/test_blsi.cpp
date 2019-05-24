@@ -2,18 +2,19 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
-#include<string>
+#include <string>
+#include <stdio.h>
 
 using namespace std;
-int Imprimant()
 
-MYSQL *conn, mysql;
+
+MYSQL*conn, mysql;
 MYSQL_RES *res;
 MYSQL_ROW row;
 
 int query_state;
 
-
+int Imprimant()
 
 {
    const char *server="127.0.0.1";
@@ -38,20 +39,22 @@ int query_state;
    res=mysql_store_result(conn);
    cout<<"Table Historique de imprimant."<<endl<<endl;
 
- cout<<setw(6)<<"Row_ID"<<setw(18)<<"C_N"<<setw(30)<<"Quantite_Ancien"<<setw(30)<<"Quantite_Copier"<<setw(30)<<"Quantite_Actuel"<<setw(30)<<"Date"<<endl<<endl;
- cout<<"***********************************************************************************************************************"<<endl;
+ //cout<<setw(6)<<"Row_ID"<<setw(10)<<"C_N"<<setw(18)<<"Quantite_Ancien"<<setw(18)<<"Quantite_Copier"<<setw(18)<<"Quantite_Actuel"<<set//w(18)<<"Date"<<endl<<endl;
+ cout<<"***************************************************************************************"<<endl;
       while((row=mysql_fetch_row(res))!=NULL)
    {
       cout<<left;
       cout<<setw(10)<<row[0]
-          <<setw(19)<<row[1]
+	  <<setw(10)<<row[1]
           <<setw(19)<<row[2]
           <<setw(19)<<row[3]
           <<setw(19)<<row[4]
           <<setw(19)<<row[5]<<endl;
    }
+  cout<<"***************************************************************************************"<<endl;        
+   	       
    cout<<endl<<endl;
-     ifstream infile;
+   ifstream infile;
    infile.open("Imprimant.txt");
    if(infile.fail())
    {
@@ -85,7 +88,7 @@ int query_state;
       string year;
       infile>>year;
       cout<<year<<endl;
-      string imprimant="INSERT INTO Imprimant (Row_ID, C_N, Quantite_ancien, Quantite_copier, Quantite_actuel, Date ) VALUES ( '"+instnum+"', '"+couleur+"', '"+insttype+"', '"+maker+"', '"+name+"', '"+year+"')";
+      string imprimant="INSERT INTO Imprimant (Row_ID,C_N, Quantite_ancien, Quantite_copier, Quantite_actuel, Date ) VALUES ( '"+instnum+"','"+couleur+"', '"+insttype+"', '"+maker+"', '"+name+"', '"+year+"')";
       query_state=mysql_query(conn,imprimant.c_str());
    }
 
@@ -106,7 +109,9 @@ int main()
 {
 
 string nom;
+int data_query;
 int choix,n,m,a,r,repond;
+char CN;
 //int long n,m,repond;
 float prix,total,solde;
 
@@ -128,6 +133,7 @@ cout << endl;
 cout<<"      votre choix (1-3): ";
 cin>>choix;
 //cout<<"\n";
+//query_state=mysql_query(conn,imprimant.c_str());
 
 switch(choix)
 
@@ -141,45 +147,24 @@ cout<<"              1.PHOTOCOPIER \n";
 cout<<"             ===============\n";
 cout << endl;
 
-cout<<"      Le quantite Photocopier : "; cin>>n;
-cout<<"      Le quantite ancien      : "; cin>>a;
+cout<<"	     Couleur ou Noir-blanc (c/n): "; cin>>CN;
+cout<<"      Le quantite Photocopier    : "; cin>>n;
+cout<<"      Le quantite ancien         : "; cin>>a;
 r=a-n;
-cout<<"      Le quantite reste        : "<<r;
+cout<<"      Le quantite reste          : "<<r;
 
-
-prix=0.1 ;
-total=n*prix;
-
-cout<<endl<<endl;
-cout<<"      Votre argent(€)         : "; cin>>m;
-
-solde=m-total;
-
-cout<<"      Solde                   : "<<solde<<"€"<<endl;
 cout << endl;
 cout << endl;
-
-
+cout<<"    ====================================================================="<<endl;
+cout<<"    | Couleur/N | Quantites ancien | Quantites copier | Quantite actuel |"<<endl;
+cout<<"	   =====================================================================\n";
+cout<<setw(6)<<"|"<<setw(10)<<CN<<setw(9)<<"|"<<setw(10)<<a<<setw(9)<<"|"<<setw(10)<<n<<setw(10)<<"|"<<setw(10)<<r<<setw(10)<<"|"<<endl;
+cout<<"    =====================================================================\n";
 cout<<endl<<endl;
 
+//data_query="insert into Imprimant(Row_ID,C_N,Quantite_ancien,Quantite_copier,Quantite_actuel,Date) values (null,CN,a,n,r,date)";
 
-
-//cout<<"Revenir à accueil ? \n";
-//cout<<"1. oui \n";
-//cout<<"2.non/sortir \n";
-//cout<<"Donne votre choix : ";
-//cin>>repond;
-//if(repond==1)
 goto menu;
-//if(repond==2)
-//goto exit;
-//else
-//cout<<"\n";
-//cout<<"Vous etes se trompez “<<endl<<“Program vas arreter tous seul";
-//goto exit;
-//}
-
-
 break;
 
 case 2:
@@ -189,20 +174,10 @@ cout<<endl<<endl;
 cout<<"             2.HISTORIQUE \n";
 cout<<"             ============\n";
 cout<<endl;
-Imprimant();
+
+	Imprimant();
 
 cout<<endl;
-
-cout<<"     =========================================================="<<endl;
-cout<<"     | Quantites ancien | Quantites utilise | Quantites reste |"<<
-endl;
-cout<<"     ==========================================================\n";
-cout<<setw(6)<<"|"<<setw(10)<<a<<setw(9)<<"|"<<setw(10)<<n<<setw(10)<<"|"<<setw(10)<<r<<setw(8)<<"|"<<endl;
-cout<<"     ==========================================================\n";
-cout<<endl;
-cout<<endl;
-
-
 goto menu;
 break;
 
@@ -213,13 +188,12 @@ cout<<"      * MERCI BEAUCOUP et à  BIÂNTOT *\n";
 cout<<"      ********************************\n";
 cout << endl;
 
-//break;
-//defaut:
+defaut:
 cout<<"      IL N 'Y A PAS VOTRE CHOIX APUYER ENTER ET ESSAYER ENCORE \n";
-goto client_suivant;
-break;
-//exit:
 
+goto client_suivant;
+goto menu;
+break;
 
 }
 return 0;

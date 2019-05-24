@@ -54,7 +54,7 @@ include_directories(
   ${CMAKE_SOURCE_DIR})
 
 add_executable(test-mariaCpp test-mariaCpp.cpp)
-add_executable(yanti yantimsql.cpp)
-add_executable(bengkulu benngkulu.cpp)
+#add_executable(yantimysql yantimysql.cpp)
+add_executable(bengkulu bengkulu.cpp)
 add_executable(bandung bandung.cpp)
 add_executable(Olivier Olivier.cpp)

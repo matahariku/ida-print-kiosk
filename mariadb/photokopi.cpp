@@ -8,10 +8,11 @@ int main()
 {
 
 string nom;
-int choix,n,m,repond;
+int choix,n,m,a,r,repond;
 //int long n,m,repond;
 float prix,total,solde;
 
+client_suivant:
 cout<<"Votre Prenom Nom :";
 getline(cin,nom);
 cout<<endl;
@@ -19,7 +20,7 @@ cout<<endl;
 menu:
 cout<<"     =============================\n";
 cout<<"         ACCUEIL PHOTOCOPIER \n";
-cout<<"             1.PAYER \n";
+cout<<"             1.PHOTOCOPIER \n";
 cout<<"             2.HISTORIQUE \n";
 cout<<"             3.SORTIR \n";
 cout<<"     =============================\n";
@@ -38,19 +39,20 @@ switch(choix)
 case 1:
 cout<<endl<<endl;
 //cout<<"     =============================\n";
-cout<<"              1.PAYER \n";
-cout<<"             =========\n";
+cout<<"              1.PHOTOCOPIER \n";
+cout<<"             ===============\n";
 cout << endl;
+
 cout<<"      Le quantite Photocopier : "; cin>>n;
+cout<<"      Le quantite ancien      : "; cin>>a;
+r=a-n;
+cout<<"      Le quantite reste	      : "<<r;
+
 
 prix=0.1 ;
 total=n*prix;
 
-cout<<"      Prix par feuille        : "<<prix<<"€ "<<endl;
-cout<<"      Total Payer             : "<<total<<"€ "<<endl;
-cout<<endl;
-cout<<endl;
-
+cout<<endl<<endl;
 cout<<"      Votre argent(€)         : "; cin>>m;
 
 solde=m-total;
@@ -64,19 +66,19 @@ cout<<endl<<endl;
 
 
 
-cout<<"Revenir à accueil ? \n";
-cout<<"1. oui \n";
-cout<<"2.non/sortir \n";
-cout<<"Donne votre choix : ";
-cin>>repond;
-if(repond==1)
+//cout<<"Revenir à accueil ? \n";
+//cout<<"1. oui \n";
+//cout<<"2.non/sortir \n";
+//cout<<"Donne votre choix : ";
+//cin>>repond;
+//if(repond==1)
 goto menu;
-if(repond==2)
-goto exit;
-else
-cout<<"\n";
-cout<<"Vous etes se trompez “<<endl<<“Program vas arreter tous seul";
-goto exit;
+//if(repond==2)
+//goto exit;
+//else
+//cout<<"\n";
+//cout<<"Vous etes se trompez “<<endl<<“Program vas arreter tous seul";
+//goto exit;
 //}
 
 
@@ -91,12 +93,12 @@ cout<<"             ============\n";
 cout<<endl;
 cout<<endl;
 
-cout<<"     ========================================================"<<endl;
-cout<<"      | Quantites | Solde ancienne |   Total   |   Solde   |"<<
+cout<<"     =========================================================="<<endl;
+cout<<"     | Quantites ancien | Quantites utilise | Quantites reste |"<<
 endl;
-cout<<"     ========================================================\n";
-cout<<setw(12)<<n<<setw(15)<<m<<setw(16)<<total<<setw(12)<<solde<<endl;
-cout<<"     ========================================================\n";                                               
+cout<<"     ==========================================================\n";
+cout<<setw(6)<<"|"<<setw(10)<<a<<setw(9)<<"|"<<setw(10)<<n<<setw(10)<<"|"<<setw(10)<<r<<setw(8)<<"|"<<endl;
+cout<<"     ==========================================================\n";                                               
 cout<<endl;
 cout<<endl;
 
@@ -106,17 +108,19 @@ break;
 
 case 3:
 cout<<endl<<endl;
-//cout<<"       ===========================\n";
-cout<<"     MERCI BEAUCOUP ET A BIANTOT\n";
-cout<<"     ---------------------------\n";
+cout<<"      ********************************\n";
+cout<<"      * MERCI BEAUCOUP et à  BIÂNTOT *\n";
+cout<<"      ********************************\n";
 cout << endl;
-break;
-defaut:
-cout<<"      IL N 'Y A PAS VOTRE CHOIX APUYER ENTER ET ESSAYER ENCORE \n";
 
+//break;
+//defaut:
+cout<<"      IL N 'Y A PAS VOTRE CHOIX APUYER ENTER ET ESSAYER ENCORE \n";
+goto client_suivant;
 break;
-exit:
+//exit:
+
 
 }
-//return 0;
+return 0;
 }

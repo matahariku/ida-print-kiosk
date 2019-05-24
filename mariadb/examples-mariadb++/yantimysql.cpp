@@ -37,17 +37,17 @@ int main()
    while((row=mysql_fetch_row(res))!=NULL)
    {
       cout<<left;
-      cout<<setw(18)<<row[0]
+      cout<<setw(15)<<row[0]
           <<setw(18)<<row[1]
           <<setw(18)<<row[2]
           <<setw(18)<<row[3]<<endl;
    }
    cout<<endl<<endl;
-   ifstream infile;
+     ifstream infile;
    infile.open("Instrument.txt");
    if(infile.fail())
    {
-      cout<<"ERROR. Could not open file!"<<endl;
+      cout<<"Voila l'information des feuilles de photocopie que vous utilisez!"<<endl;
       return 1;
    }
    infile.seekg(0, infile.end);
@@ -56,7 +56,7 @@ int main()
    string rating;
    string player="INSERT INTO Player (PlayerID, Name, Salary, StartDate) values (plID, name, salary, startdate)";
    string plays="INSERT INTO Plays (InstrumentID, PlayerID, Rating) values (instnum, plID, rating)";
-//   mysql_query(conn, "DELETE FROM Instrument WHERE MakerName='maker'");
+  // mysql_query(conn, "DELETE FROM Instrument WHERE MakerName='maker'");
    while(infile)
    {
       string instnum;
@@ -71,7 +71,7 @@ int main()
       string year;
       infile>>year;
       cout<<year<<endl;
-      string instrument="INSERT INTO Instrument (InstrumentID, InstrumentType, MakerName, YearMade) VALUES ( '"+instnum+"', '"+insttype+"', '"+maker+"', '"+year+"')";
+      string instrument="INSERT INTO Instrument (InstrumentID, InstrumentType, MakerName, YearMade ) VALUES ( '"+instnum+"', '"+insttype+"', '"+maker+"', '"+year+"')";
       query_state=mysql_query(conn,instrument.c_str());
    }
 
