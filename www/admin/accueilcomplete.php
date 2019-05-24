@@ -13,7 +13,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
 <html>
 <head>
-  <title>Cours GLOBALDATA</title>
+  <title>BLSI</title>
 </head>
 
 <body>
@@ -21,7 +21,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <center><h1>BIENVENU</h1></center>
 
 
-<center><p>Vous étes identifié en tant que : <p></center>
+<center><p>Vous étes identifié en tant que : 
+<?php 
+  print_r ($_SESSION['username']); 
+?>
+<p></center>
 <tr>
 <form name="form1-1" method="post" action="deconnect.php">
 <td width="294"><Center><input type="submit" name="Submit" value="Se deconnecter"></Center></td>
@@ -35,16 +39,21 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <td>
 <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
 <tr>
-<td colspan="3"><strong>  Panneaux de Recherche : </strong></td>
+<td colspan="3"><Center>  Panneaux de Recherche : </Center></td>
 </tr>
+<tr>
+<form name="Photocopier" method="post" action="form_input.php">
+<td width="294"><Center><input type="submit" name="Submit" value="Photocopier"></Center></td>
+</tr>
+</form>
 <tr>
 <form name="Historique" method="post" action="user.php">
 <td width="294"><Center><input type="submit" name="Submit" value="Historique"></Center></td>
 </tr>
 </form>
 <tr>
-<form name="Solde" method="post" action="solde.php">
-<td width="294"><Center><input type="submit" name="Submit" value="Solde"></Center></td>
+<form name="Quantite Feuilles Actuel" method="post" action="solde.php">
+<td width="294"><Center><input type="submit" name="Submit" value="Quantites Feuilles Actuel"></Center></td>
 </tr>
 </form>
 </table>
@@ -57,11 +66,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 <HR width="10">
 
-<center><address>Fait le 06 Mai 2019<br>
-  au CESI de Bordeaux</address></center>
+<center><address>SERVICE IMPRIMANT<br>
+  BLSI de PAILLET</address></center>
 
     <p align="center">
-        <a href="logout.php" class="btn btn-danger">Se deconnecter</a>
+        <a href="login.php" class="btn btn-danger">Accueil</a>
     </p>
 
 </body>

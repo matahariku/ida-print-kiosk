@@ -9,13 +9,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 ?>
  
-<h3>chercher un User</h3>
- 
-<form action="user.php" method="get">
-	<label>Trouvez-Le :</label>
-	<input type="text" name="chercher">
-	<input type="submit" value="chercher">
-</form>
+<h3>Votre historique </h3>
  
 <?php 
 
@@ -31,51 +25,52 @@ if(isset($_GET['chercher'])){
 		<th>row_id</th>
 		<th>nom_prenom</th>
 		<th>date</th>
-		<th>description</th>
-		<th>unites</th>
-		<th>variation</th>
-		<th>solde</th>					
+		<th>C_N</th>
+		<th>Quantite_ancien</th>
+		<th>Quantite_copier</th>
+		<th>Quantite_actuel</th>					
 	<th>
 	
 	<?php
 	Include 'inc/db_connect1.php';
 
-if(isset($_GET['chercher'])){
-                $chercher = $_GET['chercher'];
+if(isset($_SESSION['username'])){
+                $username = $_SESSION['username'];
               //$query = "select * from user where nom_prenom like '%".$chercher."%';";
                
 
-		$query = "SELECT row_id, nom_prenom, date, description, unites, variation, solde FROM user, historique WHERE nom_prenom = '".$chercher."' AND user.id_user = historique.id_user;";
+		$query = "SELECT row_id, nom_prenom, date, C_N, Quantite_ancien, Quantite_copier, Quantite_actuel FROM user, historique WHERE nom_prenom = '".$username."' AND user.id_user = historique.id_user;";
 				  
                 if ($data = mysqli_query($base, $query)) {
-                        print ("       Felicitation ! Vous avez bien reussit");;
+                        print ("       ");;
                 } else {
                         print("DATA_IS_NULL");
                 }
         }else{
+		printf("DEBUG_ISSUE_XX");
                 $data = mysqli_query($base, "select * from user");
         }
 	
 	
 
-	$ID_User = 1;
+	$row_id = 1;
 	while($d = mysqli_fetch_array($data)){
 	?>
 	<tr>
-		<td><?php echo $row_idr++; ?></td>
+		<td><?php echo $row_id++; ?></td>
 		<td><?php echo $d['nom_prenom']; ?></td>
 		<td><?php echo $d['date']; ?></td>
-		<td><?php echo $d['description']; ?></td>
-		<td><?php echo $d['unites']; ?></td>
-		<td><?php echo $d['variation']; ?></td>
-		<td><?php echo $d['solde']; ?></td>
+		<td><?php echo $d['C_N']; ?></td>
+		<td><?php echo $d['Quantite_ancien']; ?></td>
+		<td><?php echo $d['Quantite_copier']; ?></td>
+		<td><?php echo $d['Quantite_actuel']; ?></td>
 		
 	</tr>
 	<?php } ?>
 </table>
 
-    <p align="center">
-        <a href="deconnect.php" class="btn btn-danger">Se deconnecter</a>
+    <p align="left">
+        <a href="login.php" class="btn btn-danger">Accueil</a>
     </p>
 
 

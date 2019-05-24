@@ -21,7 +21,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 if(isset($_GET['chercher'])){
 	$chercher = $_GET['chercher'];
-	echo "<b>On Trouve votre le hisotrique de solde de votre Nom Prenom : ".$chercher."</b>";
+	echo "<b>On Trouve votre quantie feuille qui reste : ".$chercher."</b>";
 }
 ?>
  
@@ -30,8 +30,8 @@ if(isset($_GET['chercher'])){
 	<tr>
 		<th>row_id</th>
 		<th>date</th>
-		
-		<th>solde</th>					
+		<th>C_N</th>
+		<th>Quantite_actuel</th>					
 	<th>
 	
 	<?php
@@ -41,10 +41,10 @@ if(isset($_GET['chercher'])){
               
                
 
-		$query = "SELECT row_id, nom_prenom, date, description, unites, variation, solde FROM user, historique WHERE nom_prenom = '".$chercher."' AND user.id_user = historique.id_user;";
+		$query = "SELECT row_id, date, C_N, Quantite_actuel FROM user, historique WHERE nom_prenom= '".$chercher."' AND user.id_user = historique.id_user;";
 				  
                 if ($data = mysqli_query($base, $query)) {
-                        print ("       Felicitation ! Vous avez bien reussit");;
+                        print ("      ");;
                 } else {
                         print("DATA_IS_NULL");
                 }
@@ -52,21 +52,22 @@ if(isset($_GET['chercher'])){
                 $data = mysqli_query($base, "select * from user");
         }
 
-	$ID_User = 1;
+	$row_id = 1;
 	while($d = mysqli_fetch_array($data)){
 	?>
 	<tr>
 		<td><?php echo $row_idr++; ?></td>
 		<td><?php echo $d['date']; ?></td>
-		
-		<td><?php echo $d['solde']; ?></td>
-	
+		<td><?php echo $d['C_N']; ?></td>
+		<td><?php echo $d['Quantite_actuel']; ?></td>
 	</tr>
 	<?php } ?>
 </table>
 
-    <p align="center">
-        <a href="deconnect.php" class="btn btn-danger">Se deconnecter</a>
+    <p align="left">
+        <a href="login.php" class="btn btn-danger">Accueil</a>
     </p>
 
 
+
+	
