@@ -8,6 +8,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           exit;
 }
 
+include ('inc/db_connect1.php');
+
 if(isset($_SESSION['username'])){
             $username = $_SESSION['username'];
 }
@@ -26,13 +28,21 @@ if(isset($_SESSION['username'])){
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Imprimer PDF,PS" name="submit">
 </form>
+
+
+        
+<?php
+                $equary1="SELECT Quantite_actuel from historique, user where historique.id_user = user.id_user and user.nom_prenom = '".$username."' order by date desc LIMIT 1;";
+								//print ("DEBUG $equary1");
+                $data = mysqli_query($base, $equary1);
+                $d = mysqli_fetch_array($data);
+?>
+
  
  <form action="input_data.php" method="post">
   <table cellpadding="3" cellspacing="0">
    <tr>
-    <td>QUANTITE ACTUEL</td>
-    <td>:</td>
-    <td><input type="number" name="Quantite_actuel" required></td>
+                <tr><td>QUANTITES PHOTOCOPIE ACTUEL</td><td><?php echo $d['Quantite_actuel']; ?> </td></tr>
    </tr>
    <tr>
     <td>QUANTITE COPIER</td>
