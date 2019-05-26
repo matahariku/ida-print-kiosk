@@ -1,21 +1,34 @@
+<?php
+// Initialize the session
+session_start();
+
+// Check if the user is logged in, if not then redirect to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+      header("location: http://ida.kalou.net/blsi/admin/index.php");
+          exit;
+}
+
+if(isset($_SESSION['username'])){
+            $username = $_SESSION['username'];
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
- <title>BLSI</title>
+ <title>BLSI - Photocopier</title>
 </head>
 <body>
- <h1>PHOTOCOPIER BLSI</h1>
+ <h1>PHOTOCOPIER</h1>
  
- <h3>ADD PHOTOCOPIER</h3>
+<form action="upload-check.php" method="post" enctype="multipart/form-data">
+    Choississez le fichier a imprimer:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Imprimer PDF,PS" name="submit">
+</form>
  
  <form action="input_data.php" method="post">
   <table cellpadding="3" cellspacing="0">
-    <tr> 
-      <tr>
-    <td>NOM_PRENOM</td>
-    <td>:</td>
-    <td><input type="text" name="Nom_Prenom" required></td>
-   </tr>
    <tr>
     <td>QUANTITE ACTUEL</td>
     <td>:</td>
@@ -50,8 +63,18 @@
      </p>
 
  </form>
+
+
+<form name="form1-1" method="post" action="deconnect.php">
+<table>
+<tr>
+<td width="294">
+ <input type="submit" name="Submit" value="Se deconnecter">
+ </td>
+</tr>
+<table>
+</form>
+
+
 </body>
 </html>
-
-
-
