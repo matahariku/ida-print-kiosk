@@ -42,7 +42,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <td colspan="3"><Center>  Panneaux de Recherche : </Center></td>
 </tr>
 <tr>
-<form name="Photocopier" method="post" action="form_input.php">
+<form name="Photocopier" method="post" action="input_data.php">
 <td width="294"><Center><input type="submit" name="Submit" value="Photocopier"></Center></td>
 </tr>
 </form>
