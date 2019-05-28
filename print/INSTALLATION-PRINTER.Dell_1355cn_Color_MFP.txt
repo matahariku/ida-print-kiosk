@@ -1,0 +1,86 @@
+
+*********************
+ Detection par Linux
+*********************
+
+sudo tail -f /var/log/messages
+
+May  9 10:52:00 ambun-LIFEBOOK-S710 kernel: [ 1981.251845] usb 1-1.3: new high-speed USB device number 4 using ehci-pci
+May  9 10:52:13 ambun-LIFEBOOK-S710 kernel: [ 1994.511732] usb 1-1.3: new full-speed USB device number 5 using ehci-pci
+May  9 10:52:13 ambun-LIFEBOOK-S710 kernel: [ 1994.583691] usb 1-1.3: device descriptor read/64, error -32
+May  9 10:52:13 ambun-LIFEBOOK-S710 kernel: [ 1994.759797] usb 1-1.3: device descriptor read/64, error -32
+May  9 10:52:13 ambun-LIFEBOOK-S710 kernel: [ 1994.935983] usb 1-1.3: new full-speed USB device number 6 using ehci-pci
+May  9 10:52:13 ambun-LIFEBOOK-S710 kernel: [ 1995.008011] usb 1-1.3: device descriptor read/64, error -32
+May  9 10:52:14 ambun-LIFEBOOK-S710 kernel: [ 1995.188106] usb 1-1.3: device descriptor read/64, error -32
+May  9 10:52:14 ambun-LIFEBOOK-S710 kernel: [ 1995.292293] usb 1-1-port3: attempt power cycle
+May  9 10:52:14 ambun-LIFEBOOK-S710 kernel: [ 1995.876512] usb 1-1.3: new full-speed USB device number 7 using ehci-pci
+May  9 10:52:15 ambun-LIFEBOOK-S710 kernel: [ 1996.284735] usb 1-1.3: device not accepting address 7, error -32
+May  9 10:52:15 ambun-LIFEBOOK-S710 kernel: [ 1996.356789] usb 1-1.3: new full-speed USB device number 8 using ehci-pci
+May  9 10:52:15 ambun-LIFEBOOK-S710 kernel: [ 1996.765014] usb 1-1.3: device not accepting address 8, error -32
+May  9 10:52:15 ambun-LIFEBOOK-S710 kernel: [ 1996.765210] usb 1-1-port3: unable to enumerate USB device
+May  9 10:59:24 ambun-LIFEBOOK-S710 kernel: [ 2425.939534] usb 1-1.3: new high-speed USB device number 9 using ehci-pci
+May  9 10:59:24 ambun-LIFEBOOK-S710 kernel: [ 2426.033217] usb 1-1.3: New USB device found, idVendor=413c, idProduct=5406
+May  9 10:59:24 ambun-LIFEBOOK-S710 kernel: [ 2426.033226] usb 1-1.3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+May  9 10:59:24 ambun-LIFEBOOK-S710 kernel: [ 2426.033232] usb 1-1.3: Product: Dell 1355cn Color MFP
+May  9 10:59:24 ambun-LIFEBOOK-S710 kernel: [ 2426.033236] usb 1-1.3: Manufacturer: Dell
+May  9 10:59:24 ambun-LIFEBOOK-S710 kernel: [ 2426.033239] usb 1-1.3: SerialNumber: YNT000033
+May  9 10:59:25 ambun-LIFEBOOK-S710 kernel: [ 2426.698799] usblp 1-1.3:1.1: usblp0: USB Bidirectional printer dev 9 if 1 alt 0 proto 2 vid 0x413C pid 0x5406
+May  9 10:59:25 ambun-LIFEBOOK-S710 kernel: [ 2426.699104] usblp 1-1.3:1.2: usblp1: USB Bidirectional printer dev 9 if 2 alt 0 proto 2 vid 0x413C pid 0x5406
+May  9 10:59:25 ambun-LIFEBOOK-S710 kernel: [ 2426.699147] usbcore: registered new interface driver usblp
+May  9 11:21:19 ambun-LIFEBOOK-S710 kernel: [ 3740.517360] perf interrupt took too long (5004 > 5000), lowering kernel.perf_event_max_sample_rate to 25000
+
+
+************************************************
+ Installation du sous systeme d'impression CUPS
+************************************************
+
+sudo apt-get install cups
+
+
+**********************************************
+ Download/Install du driver sous /opt/foo2zjs
+**********************************************
+
+apt-get install build-essential
+
+cd /opt
+wget -O foo2zjs.tar.gz http://foo2zjs.rkkda.com/foo2zjs.tar.gz
+tar zxf foo2zjs.tar.gz
+cd foo2zjs
+make
+make install
+
+
+# If you use CUPS, then restart the spooler:
+#       make cups
+#
+# Now use your printer configuration GUI to create a new printer.
+#
+# On Ubuntu 5.10/6.06/6.10/7.04, run "gnome-cups-manager"
+# On Ubuntu 7.10/8.x/.../18.x, run "system-config-printer".
+
+make cups
+# (...)
+# Restarting cups (via systemctl): cups.service.
+#
+
+
+***************************************
+ Parametrage de l'imprimante avec CUPS
+***************************************
+
+Aller a 
+http://localhost:631/admin
+
+-> New Printer
+   Local Printer
+   Dell 1355cn Color MFP (Dell 1355cn Color MFP)
+
+-> Continue
+-> Continue
+
+Choisir le modele recommande
+"Dell 1355 Foomatic/foo2hbpl2"
+
+-> Add Printer
+
