@@ -22,3 +22,9 @@ Dell_1355cn_Color_MFP-5 root              1024   Wed May 15 10:20:17 2019
 root@ambun-LIFEBOOK-S710 /var/log/cups # tail -1 page_log
 Dell_1355cn_Color_MFP root 6 [15/May/2019:10:26:45 +0200] 1 1 - localhost Test Page - -
 
+
+
+#
+# Set default printer using lpadmin
+#
+root@debian # lpadmin -d Dell_1355cn_Color_MFP
