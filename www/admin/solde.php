@@ -9,22 +9,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 ?>
  
-<h3>chercher le dernier solde</h3>
- 
-<form action="solde.php" method="get">
-	<label>Trouvez-Le :</label>
-	<input type="text" name="chercher">
-	<input type="submit" value="chercher">
-</form>
- 
-<?php 
-
-if(isset($_GET['chercher'])){
-	$chercher = $_GET['chercher'];
-	echo "<b>On Trouve votre quantie feuille qui reste : ".$chercher."</b>";
-}
-?>
- 
 
 <table border="1">
 	<tr>
@@ -36,13 +20,12 @@ if(isset($_GET['chercher'])){
 	
 	<?php
 	Include 'inc/db_connect1.php';
-if(isset($_GET['chercher'])){
-	  $chercher = $_GET['chercher'];
-              
-               
+if(isset($_SESSION['username'])){
+	  $username = $_SESSION['username'];
 
-		$query = "SELECT row_id, date, C_N, Quantite_actuel FROM user, historique WHERE nom_prenom= '".$chercher."' AND user.id_user = historique.id_user;";
-				  
+		$query = "SELECT row_id, date, C_N, Quantite_actuel FROM user, historique WHERE nom_prenom= '".$username."' AND user.id_user = historique.id_user;";
+		//print ("DEBUG: $query");
+				
                 if ($data = mysqli_query($base, $query)) {
                         print ("      ");;
                 } else {

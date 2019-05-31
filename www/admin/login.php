@@ -31,8 +31,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Prepare a select statement
         $sql = "SELECT nom_prenom FROM user WHERE nom_prenom = ?";
 
-//print ("DEBUG: sql=".$sql);
-		
         if($stmt = mysqli_prepare($base, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $username);
@@ -40,8 +38,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Set parameters
             $param_username = $username;
 		
-//print ("DEBUG: username=".$username); print ("DEBUG: param_username=".$param_username);
-            
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Store result
@@ -98,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>NOM Prenom</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                <input type="text" name="username" class="form-control" >
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>    
             <div class="form-group">

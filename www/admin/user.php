@@ -26,7 +26,6 @@ if(isset($_GET['chercher'])){
 		<th>nom_prenom</th>
 		<th>date</th>
 		<th>C_N</th>
-		<th>Quantite_ancien</th>
 		<th>Quantite_copier</th>
 		<th>Quantite_actuel</th>					
 	<th>
@@ -39,7 +38,8 @@ if(isset($_SESSION['username'])){
               //$query = "select * from user where nom_prenom like '%".$chercher."%';";
                
 
-		$query = "SELECT row_id, nom_prenom, date, C_N, Quantite_ancien, Quantite_copier, Quantite_actuel FROM user, historique WHERE nom_prenom = '".$username."' AND user.id_user = historique.id_user;";
+		$query = "SELECT row_id, nom_prenom, date, C_N, Quantite_copier, Quantite_actuel FROM user, historique WHERE nom_prenom = '".$username."' AND user.id_user = historique.id_user;";
+	
 				  
                 if ($data = mysqli_query($base, $query)) {
                         print ("       ");;
@@ -47,7 +47,7 @@ if(isset($_SESSION['username'])){
                         print("DATA_IS_NULL");
                 }
         }else{
-		printf("DEBUG_ISSUE_XX");
+		//printf("DEBUG_ISSUE_XX");
                 $data = mysqli_query($base, "select * from user");
         }
 	
@@ -61,7 +61,6 @@ if(isset($_SESSION['username'])){
 		<td><?php echo $d['nom_prenom']; ?></td>
 		<td><?php echo $d['date']; ?></td>
 		<td><?php echo $d['C_N']; ?></td>
-		<td><?php echo $d['Quantite_ancien']; ?></td>
 		<td><?php echo $d['Quantite_copier']; ?></td>
 		<td><?php echo $d['Quantite_actuel']; ?></td>
 		
