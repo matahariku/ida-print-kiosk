@@ -79,3 +79,12 @@ CREATE TABLE `page_log` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
+
+
+***************************************
+ Les limites du /var/log/cups/page_log 
+***************************************
+
+https://en.opensuse.org/SDB:Printer_Accounting
+
+Non fiable lorsque le user imprime en mode RAW
