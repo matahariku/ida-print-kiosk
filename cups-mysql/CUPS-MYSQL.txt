@@ -68,7 +68,8 @@ CREATE TABLE `page_log` (
   `printer` varchar(64) NOT NULL,
   `user` varchar(32) NOT NULL,
   `job_id` bigint(20) NOT NULL,
-  `date_time` date NOT NULL,
+#  `date_time` date NOT NULL,
+  `date_time` varchar(128),
   `page_number` int(11) NOT NULL,
   `num_copies` int(11) NOT NULL,
   `job_billing` varchar(32) NOT NULL,
@@ -79,3 +80,12 @@ CREATE TABLE `page_log` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
+
+
+***************************************
+ Les limites du /var/log/cups/page_log 
+***************************************
+
+https://en.opensuse.org/SDB:Printer_Accounting
+
+Non fiable lorsque le user imprime en mode RAW
