@@ -1,0 +1,51 @@
+************
+ Pre-Requis
+************
+
+# Pour tracer les changements du fichier /var/log/cups/page_log
+sudo apt-get install git
+
+
+
+
+************************
+ Installation du script
+************************
+
+cp cups-mysql/page_log_to_mysql.sh /usr/local/bin
+chmod 755 /usr/local/bin/page_log_to_mysql.sh
+
+*****************
+ Initialisation
+*****************
+
+su - 
+mv /var/log/cups/page_log /tmp
+touch /var/log/cups/page_log
+rm -rf /var/log/cups/.git
+cd /var/log/cups
+git init .
+git add page_log
+git commit page_log -m "page_log initial, vide"
+cat /tmp/page_log > page_log
+rm /tmp/page_log
+
+Ajouter la ligne suivante dans la crontab root:
+
+# m h  dom mon dow   command
+*/1 * * * * /usr/local/bin/page_log_to_mysql.sh
+
+
+C'est pret.
+Toutes les minutes, le script va detecter les changements dans le fichier /var/log/cups/page_log,
+et les pousser dans la base de donnees mysql (table blsi.page_log);
+
+MariaDB [blsi]> select * from page_log;
++-----------------------+------+--------+------------------------------+-------------+------------+-------------+--------------------------+---------------------+-------+-------+
+| printer               | user | job_id | date_time                    | page_number | num_copies | job_billing | job_originating_hostname | job_name            | media | sides |
++-----------------------+------+--------+------------------------------+-------------+------------+-------------+--------------------------+---------------------+-------+-------+
+| Dell_1355cn_Color_MFP | root |     24 | [31/May/2019:11:04:11 +0200] |           1 |          1 | -           | localhost                | Emargementstage.pdf | -     |     0 |
+| Dell_1355cn_Color_MFP | root |     25 | [31/May/2019:11:04:11 +0200] |           1 |          1 | -           | localhost                | Emargementstage.pdf | -     |     0 |
++-----------------------+------+--------+------------------------------+-------------+------------+-------------+--------------------------+---------------------+-------+-------+
+2 rows in set (0.00 sec)
+
