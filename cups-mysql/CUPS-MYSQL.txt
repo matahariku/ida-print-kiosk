@@ -1,9 +1,16 @@
 
-The table "page_log" is created from the file /var/log/cups/page_log
-It contains page log ***that have been successfully printed***
+Le systeme d'impression CUPS genere, *** pour toute page imprimee ***, une ligne 
+vers le fichier /var/log/cups/page_log
+
+Le script  page_log_to_mysql.sh a pour role:
+
+- de surveiller chaque minute le fichier /var/log/cups/page_log
+(lancement par la crontab root, surveillance/archivage des changements a l'aide de git)
+
+- d'injecter les nouvelles lignes dans la table SQL blsi.page_log
 
 ***********************
- FROM "man cupsd-logs"
+ page "man cupsd-logs"
 ***********************
 
    PAGE LOG FILE FORMAT
