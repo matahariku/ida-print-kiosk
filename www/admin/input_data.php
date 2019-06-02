@@ -26,7 +26,7 @@ if(isset($_SESSION['username'])){
 <form action="upload-check.php" method="post" enctype="multipart/form-data">
     Choississez le fichier a imprimer:
     <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Imprimer PDF,PS" name="submit">
+    <input type="submit" value="Imprimer PDF,PS,TXT" name="submit">
 </form>
 
 
