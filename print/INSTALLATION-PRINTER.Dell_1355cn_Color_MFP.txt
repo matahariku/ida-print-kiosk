@@ -65,9 +65,13 @@ make cups
 #
 
 
-***************************************
- Parametrage de l'imprimante avec CUPS
-***************************************
+*********************************************
+ Parametrage des files d'impression (Queues)
+*********************************************
+
+2 files d'impression doivent etre definies en suivant la procedure suivante 2 fois
+1 fois en Couleur,
+1 fois en Noir et Blanc:
 
 Aller a 
 http://localhost:631/admin
