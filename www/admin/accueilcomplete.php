@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style>
+        body{ font: 14px sans-serif; }
+        .wrapper{ width: 350px; padding: 20px; }
+    </style>
+    <link rel="stylesheet" type="text/css" href="accueil.css">
+
+
+
 <?php
 // Initialize the session
 session_start();
@@ -18,14 +33,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 <body>
 <!-- Contenu principal -->
-<center><h1>BIENVENU</h1></center>
+<br>
+<br>
+<br>
+<br>
+<center><h1><strong>BIENVENU</strong></h1></center>
 
-
-<center><p>Vous étes identifié en tant que : 
-<?php 
-  print_r ($_SESSION['username']); 
-?>
-<p></center>
+<br>
+<center><p>Vous étes identifié en tant que : </p></center>
 <tr>
 <form name="form1-1" method="post" action="deconnect.php">
 <td width="294"><Center><input type="submit" name="Submit" value="Se deconnecter"></Center></td>
@@ -39,7 +54,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <td>
 <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
 <tr>
-<td colspan="3"><Center>  Panneaux de Recherche : </Center></td>
+<br>
+<br>
+<br>
+<td colspan="3"><Center><h3> Panneaux de Recherche : </h3></Center></td>
 </tr>
 <tr>
 <form name="Photocopier" method="post" action="input_data.php">
@@ -66,8 +84,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 <HR width="10">
 
-<center><address>SERVICE IMPRIMANT<br>
-  BLSI de PAILLET</address></center>
+<h3><center><address>SERVICE IMPRIMANT<br>
+  BLSI de PAILLET</address></center></h3>
 
     <p align="center">
         <a href="login.php" class="btn btn-danger">Accueil</a>
