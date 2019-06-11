@@ -1,0 +1,28 @@
+
+body {
+	background: url(http://ida.kalou.net/blsi/admin/kayu8.jpg) no-repeat center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+}
+
+h1 {
+  color:#FFFF00;
+}
+
+th {
+  color:#fff;
+}
+td {
+  color: #fff;
+}
+P > a {
+  color:#87CEEB;
+}
+table {
+  color:#fff;
+}
+
+option {
+	color:black;
+}
