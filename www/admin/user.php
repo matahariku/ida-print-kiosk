@@ -1,33 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style>
+        body{ font: 14px sans-serif; }
+        .wrapper{ width: 350px; padding: 20px; }
+    </style>
+    <link rel="stylesheet" type="text/css" href="user.css">
+
+
 <?php
 // Initialize the session
 session_start();
 
+
 // Check if the user is logged in, if not then redirect to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: http://ida.kalou.net/blsi/admin/index.php");
+    header("location: index.php");
     exit;
 }
 ?>
- 
-<h3>Votre historique </h3>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html>
+<head>
+  <title>Feuilles actuel</title>
+</head>
+
+<body>
+<!-- Contenu principal -->
+<br>
+<br>
+<br>
+<br>
+
+<h1><strong>Votre Historique</strong></h1>
+<br>
  
 <?php 
 
 if(isset($_GET['chercher'])){
 	$chercher = $_GET['chercher'];
-	echo "<b>On Trouve un Nom  prenom : ".$chercher."</b>";
+	echo "<b><h4>On Trouve un Nom  prenom : ".$chercher."</h4></b>";
 }
 ?>
  
 
 <table border="1">
 	<tr>
-		<th>row_id</th>
-		<th>nom_prenom</th>
-		<th>date</th>
-		<th>C_N</th>
-		<th>Quantite_copier</th>
-		<th>Quantite_actuel</th>					
+		<th bgcolor="#000000">row_id</th>
+		<th bgcolor="#000000">nom_prenom</th>
+		<th bgcolor="#000000">date</th>
+		<th bgcolor="#000000">C_N</th>
+		<th bgcolor="#000000">Quantite_copier</th>
+		<th bgcolor="#000000">Quantite_actuel</th>					
 	<th>
 	
 	<?php
@@ -57,19 +87,24 @@ if(isset($_SESSION['username'])){
 	while($d = mysqli_fetch_array($data)){
 	?>
 	<tr>
-		<td><?php echo $row_id++; ?></td>
-		<td><?php echo $d['nom_prenom']; ?></td>
-		<td><?php echo $d['date']; ?></td>
-		<td><?php echo $d['C_N']; ?></td>
-		<td><?php echo $d['Quantite_copier']; ?></td>
-		<td><?php echo $d['Quantite_actuel']; ?></td>
+		<td bgcolor="#A52A2A"><?php echo $row_id++; ?></td>
+		<td bgcolor="#0000FF3"><?php echo $d['nom_prenom']; ?></td>
+		<td bgcolor="#8B0000"><?php echo $d['date']; ?></td>
+		<td bgcolor="#66CDAA"><?php echo $d['C_N']; ?></td>
+		<td bgcolor="#B22222"><?php echo $d['Quantite_copier']; ?></td>
+		<td bgcolor="#4B0082"><?php echo $d['Quantite_actuel']; ?></td>
 		
 	</tr>
 	<?php } ?>
 </table>
-
+	<br>
+	<br>
     <p align="left">
-        <a href="login.php" class="btn btn-danger">Accueil</a>
+        <strong><a href="login.php" class="btn btn-danger">Accueil</a></strong>
     </p>
+
+
+</body>
+</html>
 
 
