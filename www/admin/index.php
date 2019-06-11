@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Set parameters
             $param_username = $username;
-		
+        
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Store result
@@ -86,11 +86,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         body{ font: 14px sans-serif; }
         .wrapper{ width: 350px; padding: 20px; }
     </style>
+    <link rel="stylesheet" type="text/css" href="login.css">
 </head>
 <body>
     <div class="wrapper">
-        <h2>Login</h2>
-        <p>Merci de saisir votre NOM Prenom</p>
+        <h1>LOGIN</h1>
+        <p><h4><strong>Merci de saisir votre NOM Prenom </strong></h4></p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>NOM Prenom</label>
@@ -100,7 +101,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
-            <p>Mot de passe perdu ? <a href="reset-password.php">Re-initialisez-le </a>.</p>
+            <p><strong>Mot de passe perdu ?<a href="reset-password.php">Re-initialisez-le </a>.</strong></p>
         </form>
     </div>    
 </body>
