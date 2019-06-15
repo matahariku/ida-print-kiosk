@@ -31,7 +31,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <br>
 <br>
 <br>
-<center><h1><strong>BIENVENU</strong></h1></center>
+<center><h1><strong>BIENVENUE</strong></h1></center>
 
 <br>
 <center><p>Vous étes identifié en tant que : </p></center>
