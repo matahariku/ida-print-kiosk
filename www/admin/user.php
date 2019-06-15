@@ -1,34 +1,26 @@
+<?php
+// Initialiser la session
+session_start();
+
+// Verifier si l'utilisateur est identifie, sinon rediriger vers login.php
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: index.php");
+    exit;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Historique</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style>
         body{ font: 14px sans-serif; }
         .wrapper{ width: 350px; padding: 20px; }
     </style>
     <link rel="stylesheet" type="text/css" href="user.css">
-
-
-<?php
-// Initialize the session
-session_start();
-
-
-// Check if the user is logged in, if not then redirect to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: index.php");
-    exit;
-}
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
-<html>
-<head>
-  <title>Feuilles actuel</title>
 </head>
 
 <body>
@@ -45,7 +37,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 if(isset($_GET['chercher'])){
 	$chercher = $_GET['chercher'];
-	echo "<b><h4>On Trouve un Nom  prenom : ".$chercher."</h4></b>";
+	echo "<b><h4>Chercher Nom  prenom : ".$chercher."</h4></b>";
 }
 ?>
  
@@ -106,5 +98,3 @@ if(isset($_SESSION['username'])){
 
 </body>
 </html>
-
-
