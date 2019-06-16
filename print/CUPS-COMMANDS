@@ -3,8 +3,9 @@
 # Shows the accepting state of printer queues.
 #
 
-root@ambun-LIFEBOOK-S710 /var/log/cups # lpstat -a
-Dell_1355cn_Color_MFP accepting requests since Wed May 15 10:26:53 2019
+root@debian:/var/log/cups# lpstat -a
+Dell_1355cn_Color_MFP accepting requests since dim. 16 juin 2019 11:13:15 CEST
+DELL_Dell_1355cn_NoirEtBlanc_MFP accepting requests since dim. 02 juin 2019 09:59:44 CEST
 
 
 #
