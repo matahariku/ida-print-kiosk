@@ -42,22 +42,26 @@ if(isset($_POST["submit"])) {
     $mime_type= finfo_file($finfo, $target_file) . "\n";
     finfo_close($finfo);
     
-if ($mime_type == "application/pdf" ) { $check = true; }
-if ($mime_type == "application/postscript" ) { $check = true; }
-if ($mime_type == "application/text" ) { $check = true; }
-if ($mime_type == "text/plain" ) { $check = true; }
-if ($mime_type == "text/html" ) { $check = true; }
+// PDF2PS
+if ($mime_type == "application/pdf" ) { 
+	$check = true; 
+}
+
+// TXT2PS
+if ($mime_type == "application/text" || $mime_type == "text/plain" || $mime_type == "text/html" ) { 
+	$check = true; 
+}
+
+if ($mime_type == "application/postscript" ) { 
+	$check = true; 
+}
     
-    if($check == true) {
-        echo "File is supported";
-        $uploadOk = 1;
-    } else {
+if($check == false) {
         echo "target_file: $target_file";
         echo "Seuls les fichiers PDF, PS, TXT ou HTML sont acceptes (mime detecte: $mime_type)";
         $uploadOk = 0;
-    }
 }
 
-// PDF2PS
-// TXT2PS
+}
+
 ?>
