@@ -48,7 +48,7 @@ if ($mime_type == "application/pdf" ) {
 }
 
 // TXT2PS
-if ($mime_type == "application/text" || $mime_type == "text/plain" || $mime_type == "text/html" ) { 
+if ( ( $mime_type == "application/text" ) || ( $mime_type == "text/plain" ) || ( $mime_type == "text/html") ) { 
 	$check = true; 
 }
 
