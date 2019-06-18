@@ -1,4 +1,10 @@
 <?php
+
+// TODO
+//
+// - si pas de fichier fourni, retourner a la page input_data.php
+// - max document size php (nginx/apache)
+//
 // Initialize the session
 session_start();
 
@@ -23,12 +29,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 <?php
 
-//$target_dir = "uploads/";
 $target_dir = sys_get_temp_dir()."/";
 echo "target_dir=$target_dir<br>";
 $tmp_target_file = $_FILES["fileToUpload"]["tmp_name"];
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-echo "rename $tmp_target_file, $target_file";
+echo "rename $tmp_target_file, $target_file<br>";
 rename($tmp_target_file, $target_file);
 
 $uploadOk = 1;
@@ -38,7 +43,7 @@ $check = false;
 if(isset($_POST["submit"])) {
     
     $finfo = finfo_open(FILEINFO_MIME_TYPE); // Retourne le type mime à l'extension mimetype
-    $mime_type= finfo_file($finfo, $target_file) . "\n";
+    $mime_type= rtrim(finfo_file($finfo, $target_file)) . "\n";
     finfo_close($finfo);
     
 // PDF2PS
