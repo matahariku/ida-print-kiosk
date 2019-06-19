@@ -8,6 +8,7 @@ pushd /var/log/cups > /dev/null
 
 #
 # Detection des changements du fichier /var/log/cups/page_log
+# Et insertion dans la base de données
 #
 
 git diff -U0 page_log  | egrep "^[+]" | egrep -v page_log$ | sed 's/.//' |\
