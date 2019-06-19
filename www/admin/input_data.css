@@ -9,11 +9,10 @@ body {
 h1 {
 	color:#fff;
 }
-
- 
-p {
-	color: #fff;
+form > h3 {
+	color:#fff;
 }
+ 
 td > input {
   color: black;
 }
@@ -21,4 +20,7 @@ td > input {
 
 option {
 	color:black;
+}
+p > a {
+  color:#FFD700;
 }
