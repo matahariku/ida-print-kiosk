@@ -46,7 +46,11 @@ $tmp_target_file = $_FILES["fileToUpload"]["tmp_name"];
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 rename($tmp_target_file, $target_file);
 
+//
 // Vérifier si le fichier est un fichier valide 
+// (mime_type correspondant a PDF, html, txt)
+//
+
 if(isset($_POST["submit"])) {
   
   $finfo = finfo_open(FILEINFO_MIME_TYPE); // Retourne le type mime à l'extension mimetype
