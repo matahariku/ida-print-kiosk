@@ -9,7 +9,7 @@ body {
 h1 {
 	color:#fff;
 }
-form > h3 {
+form {
 	color:#fff;
 }
  
@@ -21,6 +21,6 @@ td > input {
 option {
 	color:black;
 }
-p > a {
+p > a  {
   color:#FFD700;
 }
