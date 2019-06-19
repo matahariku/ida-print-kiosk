@@ -44,7 +44,7 @@ if(isset($_SESSION['C_N'])){
  <h1><strong>PHOTOCOPIER</strong></h1>
 
 <form action="upload.php" method="post" enctype="multipart/form-data">
-    Choisissez le fichier a imprimer:
+    <strong>Choisissez le fichier a imprimer:</strong>
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Imprimer PDF,PS,TXT" name="submit">
 </form>
@@ -74,7 +74,7 @@ if(isset($_SESSION['C_N'])){
    </tr>
 
    <tr>
-    <td bgcolor="#E0FFFF">QUEL TYPE DE VOTRE CHOIX ?</td>
+    <td bgcolor="#008000">QUEL TYPE DE VOTRE CHOIX ?</td>
     <td>:</td>
     <td>
       <select name="C_N" required>
@@ -85,7 +85,7 @@ if(isset($_SESSION['C_N'])){
     </td>
 
       <p align="left">
-        <stong><a href="login.php" class="btn btn-danger">Accueil</a></strong>
+        <a href="login.php" class="btn btn-danger">Accueil</a>
     </p>
 </table>
 </form>
