@@ -22,21 +22,21 @@ session_start();
 
 // Check if the user is logged in, if not then redirect to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
-    exit;
+  header("location: login.php");
+  exit;
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <style>
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
-    <link rel="stylesheet" type="text/css" href="accueil.css">
+  <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+      body{ font: 14px sans-serif; }
+      .wrapper{ width: 350px; padding: 20px; }
+  </style>
+  <link rel="stylesheet" type="text/css" href="upload.css">
 </head>
 
 <?php
@@ -50,21 +50,21 @@ $uploadOk = 1;
 
 // Vérifier si le fichier est un fichier valide 
 if(isset($_POST["submit"])) {
-    
-    $finfo = finfo_open(FILEINFO_MIME_TYPE); // Retourne le type mime à l'extension mimetype
-    $mime_type= rtrim(finfo_file($finfo, $target_file)) . "\n";
-    finfo_close($finfo);
-    
+  
+  $finfo = finfo_open(FILEINFO_MIME_TYPE); // Retourne le type mime à l'extension mimetype
+  $mime_type= rtrim(finfo_file($finfo, $target_file)) . "\n";
+  finfo_close($finfo);
+  
 // PDF2PS
 
 if ($mime_type == 'application/pdf' ) { 
-	$format = pdf;
+$format = pdf;
 }
 
 // TXT2PS
 
 if ( (0 == strncmp($mime_type,"text/plain", 10) ) || ( 0 == strncmp($mime_type,"application/text", 16) ) ) { 
-	$format = text;
+$format = text;
 }
 
 // HTML2PS 
@@ -74,26 +74,34 @@ if ( ( 0 == strncmp($mime_type,"text/html", 9) ) ) { $format = html; }
 // sans filtre :)
 
 if ($mime_type == 'application/postscript' ) { $format = postscript; }
-    
+  
 if($format == "") {
-        echo "Seuls les fichiers PDF, PS, TXT ou HTML sont acceptes (format detecte: $mime_type)<br>";
-        exit();
+      echo "Seuls les fichiers PDF, PS, TXT ou HTML sont acceptes (format detecte: $mime_type)<br>";
+      exit();
 }
+
+echo "FICHIER A IMPRIMER: $target_file <br>";
+echo "FORMAT DETECTE: $format, <br>";
 
 // Ok nous pouvons maintenant convertir le fichier puis imprimer $target_file
-$fn = tempnam(sys_get_temp_dir(), 'print-kiosk');
+$fn = tempnam(sys_get_temp_dir(), 'print-kiosk').'.ps';
 
 switch ($format) {
-  case 'text':
-    $filter = "txt2ps";
-  case 'html':
-    shell_exec ("html2ps < $target_file > $fn");
-  case 'pdf':
-    $filter = "pdf2ps";
-    shell_exec ("pdf2ps $target_file $fn");
-  case 'postscript':
+case 'text':
+  $filter = "txt2ps";
+case 'html':
+  shell_exec ("html2ps < $target_file > $fn");
+case 'pdf':
+  shell_exec ("pdf2ps $target_file $fn");
+case 'postscript':
 }
 
+echo "FICHIER POSTSCRIPT AVANT IMPRESSION: $fn <br>";
+  
+echo ('<pre> DEBUG<br>'.shell_exec ("/usr/bin/file $fn").'</pre><br>');
+echo ('<pre> DEBUG<br>'.shell_exec ("/usr/bin/lpr $fn ").'</pre><br>');
+echo ('<pre> DEBUG<br>'.shell_exec ("/usr/bin/lpq $fn").'</pre><br>');
+echo ('<pre> DEBUG<br>'.shell_exec ("/usr/bin/lpstat -W completed $fn").'</pre><br>');
 
 
 // On nettoie avant de sortir
