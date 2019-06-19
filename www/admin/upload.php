@@ -1,9 +1,18 @@
 <?php
 
+//
+// PRE-REQUIS
+//
+// Filtres pour conversion vers Postscript
+//
+// - html2ps, ghostscript (pdf2ps)
+//
+
 // TODO
 //
 // - si pas de fichier fourni, retourner a la page input_data.php
 // - max document size php (nginx/apache)
+// - colonne NOIR / colonne COULEUR
 //
 // Initialize the session
 session_start();
@@ -30,14 +39,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <?php
 
 $target_dir = sys_get_temp_dir()."/";
-echo "target_dir=$target_dir<br>";
 $tmp_target_file = $_FILES["fileToUpload"]["tmp_name"];
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-echo "rename $tmp_target_file, $target_file<br>";
 rename($tmp_target_file, $target_file);
 
 $uploadOk = 1;
-$check = false;
 
 // Vérifier si le fichier est un fichier valide 
 if(isset($_POST["submit"])) {
@@ -47,28 +53,44 @@ if(isset($_POST["submit"])) {
     finfo_close($finfo);
     
 // PDF2PS
-if ($mime_type == "application/pdf" ) { 
-	$check = true; 
+
+if ($mime_type == 'application/pdf' ) { 
+	$format = pdf;
 }
 
 // TXT2PS
-if ( ( $mime_type == "application/text" ) || ( $mime_type == "text/plain" ) || ( $mime_type == "text/html") ) { 
-	$check = true; 
+
+if ( (0 == strncmp($mime_type,"text/plain", 10) ) || ( 0 == strncmp($mime_type,"application/text", 16) ) ) { 
+	$format = text;
 }
 
-if ( ( $mime_type == "text/plain" ) ) { 
-	$check = true; 
-}
+// HTML2PS 
 
-if ($mime_type == "application/postscript" ) { 
-	$check = true; 
-}
+if ( ( 0 == strncmp($mime_type,"text/html", 9) ) ) { $format = html; }
+
+// sans filtre :)
+
+if ($mime_type == 'application/postscript' ) { $format = postscript; }
     
-if($check == false) {
-        echo "target_file: $target_file";
-        echo "Seuls les fichiers PDF, PS, TXT ou HTML sont acceptes (mime detecte: $mime_type)";
-        $uploadOk = 0;
+if($format == "") {
+        echo "Seuls les fichiers PDF, PS, TXT ou HTML sont acceptes (format detecte: $mime_type)<br>";
+        exit();
 }
+
+switch ($format) {
+  case 'text':
+    $filter = "txt2ps";
+  case 'html':
+    $filter = "html2ps";
+  case 'pdf':
+    $filter = "pdf2ps";
+  case 'postscript':
+}
+
+
+// Ok nous pouvons maintenant convertir le fichier puis imprimer $target_file
+
+echo "$format<br>";
 
 }
 
