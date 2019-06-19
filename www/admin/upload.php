@@ -97,6 +97,7 @@ switch ($format) {
 
 	case 'text':
 	  	shell_exec ("a2ps < $target_file > $fn");
+
 	case 'html':
 	  	shell_exec ("html2ps < $target_file > $fn");
 
@@ -104,13 +105,18 @@ switch ($format) {
   		shell_exec ("pdf2ps $target_file $fn");
 
 	case 'postscript':
+  		shell_exec ("cp $target_file $fn");
 }
 
 echo "FICHIER POSTSCRIPT AVANT IMPRESSION: $fn <br>";
   
 echo ('<pre> <br>'.shell_exec ("/usr/bin/file $fn").'</pre><br>');
+
+echo "LANCEMENT DE L'IMPRESSION EN COURS <br>";
 echo ('<pre> <br>'.shell_exec ("/usr/bin/lpr $fn ").'</pre><br>');
-echo ('<pre> <br>'.shell_exec ("/usr/bin/lpq $fn").'</pre><br>');
+
+echo "MERCI DE VERIFIER LA TABLE PAGE_LOG"
+//echo ('<pre> <br>'.shell_exec ("/usr/bin/lpq $fn").'</pre><br>');
 //echo ('<pre> DEBUG<br>'.shell_exec ("/usr/bin/lpstat -W completed $fn").'</pre><br>');
 
 
