@@ -4,7 +4,7 @@
 # Entree dans le repertoire /var/log/cups (sous controle de GIT)
 #
 
-pushd /var/log/cups > /dev/null
+pushd /var/log/cups
 
 #
 # Detection des changements du fichier /var/log/cups/page_log
