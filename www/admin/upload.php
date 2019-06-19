@@ -58,7 +58,6 @@ if(isset($_POST["submit"])) {
 // PDF2PS
 
 if ( ( 0 == strncmp($mime_type,"application/pdf", 15) ) { $format = pdf; }
-}
 
 // TXT2PS
 
