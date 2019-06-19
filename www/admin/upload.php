@@ -10,8 +10,11 @@
 
 // TODO
 //
+// - dresser la liste des imprimantes dans input_data.php (lpstat -a) pour transmettre a upload.php ($printer) 
 // - si pas de fichier fourni, retourner a la page input_data.php
-// - max document size php (nginx/apache)
+// - option SECURITE: re-checker dans upload.php que l'imprimante fournie dans $printer existe bien et ne contient pas des meta caracteres
+// - option SECURITE: checker le REFERER pour upload.php, qui doit etre input_data.php et seulement cette page
+// - max document size php (nginx/apache) = 100Mo: upload_max_filesize=100M
 // - colonne NOIR / colonne COULEUR
 //
 // Initialize the session
@@ -77,20 +80,24 @@ if($format == "") {
         exit();
 }
 
+// Ok nous pouvons maintenant convertir le fichier puis imprimer $target_file
+$fn = tempnam(sys_get_temp_dir(), 'print-kiosk');
+
 switch ($format) {
   case 'text':
     $filter = "txt2ps";
   case 'html':
-    $filter = "html2ps";
+    shell_exec ("html2ps < $target_file > $fn");
   case 'pdf':
     $filter = "pdf2ps";
+    shell_exec ("pdf2ps $target_file $fn");
   case 'postscript':
 }
 
 
-// Ok nous pouvons maintenant convertir le fichier puis imprimer $target_file
 
-echo "$format<br>";
+// On nettoie avant de sortir
+unlink($fn);
 
 }
 
