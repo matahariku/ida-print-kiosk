@@ -44,7 +44,7 @@ if(isset($_SESSION['C_N'])){
  <h1><strong>PHOTOCOPIER</strong></h1>
 
 <form action="upload.php" method="post" enctype="multipart/form-data">
-    <strong>Choisissez le fichier a imprimer:</strong>
+    <h3><strong>Choisissez le fichier a imprimer:</strong></h3>
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Imprimer PDF,PS,TXT" name="submit">
 </form>
