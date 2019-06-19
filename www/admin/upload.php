@@ -59,21 +59,25 @@ if(isset($_POST["submit"])) {
   
 // PDF2PS
 
-if ( (0 == strncmp($mime_type,"application/pdf", 15)
-  ) )
+if ( (0 == strncmp($mime_type,"application/pdf", 15)) )
 { $format = pdf; }
 
 // TXT2PS
 
-if ( (0 == strncmp($mime_type,"text/plain", 10) ) || ( 0 == strncmp($mime_type,"application/text", 16) ) ) { 
-$format = text;
-}
+if ( (0 == strncmp($mime_type,"text/plain", 10) ) ||
+     (0 == strncmp($mime_type,"application/text", 16) ) 
+   ) 
+{ $format = text; }
 
 // HTML2PS 
 
-if ( ( 0 == strncmp($mime_type,"text/html", 9) ) ) { $format = html; }
+if ( ( 0 == strncmp($mime_type,"text/html", 9) ) 
+   ) 
+{ $format = html; }
 
-// sans filtre :)
+//
+// sans filtre puisqu'on nous donne du postscript
+//
 
 if ($mime_type == 'application/postscript' ) { $format = postscript; }
   
