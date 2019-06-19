@@ -98,10 +98,10 @@ case 'postscript':
 
 echo "FICHIER POSTSCRIPT AVANT IMPRESSION: $fn <br>";
   
-echo ('<pre> DEBUG<br>'.shell_exec ("/usr/bin/file $fn").'</pre><br>');
-echo ('<pre> DEBUG<br>'.shell_exec ("/usr/bin/lpr $fn ").'</pre><br>');
-echo ('<pre> DEBUG<br>'.shell_exec ("/usr/bin/lpq $fn").'</pre><br>');
-echo ('<pre> DEBUG<br>'.shell_exec ("/usr/bin/lpstat -W completed $fn").'</pre><br>');
+echo ('<pre> <br>'.shell_exec ("/usr/bin/file $fn").'</pre><br>');
+echo ('<pre> <br>'.shell_exec ("/usr/bin/lpr $fn ").'</pre><br>');
+echo ('<pre> <br>'.shell_exec ("/usr/bin/lpq $fn").'</pre><br>');
+//echo ('<pre> DEBUG<br>'.shell_exec ("/usr/bin/lpstat -W completed $fn").'</pre><br>');
 
 
 // On nettoie avant de sortir
