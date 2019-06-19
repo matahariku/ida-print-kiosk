@@ -46,8 +46,6 @@ $tmp_target_file = $_FILES["fileToUpload"]["tmp_name"];
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 rename($tmp_target_file, $target_file);
 
-$uploadOk = 1;
-
 // Vérifier si le fichier est un fichier valide 
 if(isset($_POST["submit"])) {
   
