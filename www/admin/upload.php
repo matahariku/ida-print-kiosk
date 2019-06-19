@@ -79,9 +79,10 @@ if ( ( 0 == strncmp($mime_type,"text/html", 9) )
 // sans filtre puisqu'on nous donne du postscript
 //
 
-if ($mime_type == 'application/postscript' ) { $format = postscript; }
+if ($mime_type == 'application/postscript' )
+{ $format = postscript; }
   
-if($format == "") {
+if ($format == "") {
       echo "Seuls les fichiers PDF, PS, TXT ou HTML sont acceptes (format detecte: $mime_type)<br>";
       exit();
 }
@@ -93,13 +94,16 @@ echo "FORMAT DETECTE: $format, <br>";
 $fn = tempnam(sys_get_temp_dir(), 'print-kiosk').'.ps';
 
 switch ($format) {
-case 'text':
-  $filter = "txt2ps";
-case 'html':
-  shell_exec ("html2ps < $target_file > $fn");
-case 'pdf':
-  shell_exec ("pdf2ps $target_file $fn");
-case 'postscript':
+
+	case 'text':
+	  	shell_exec ("a2ps < $target_file > $fn");
+	case 'html':
+	  	shell_exec ("html2ps < $target_file > $fn");
+
+	case 'pdf':
+  		shell_exec ("pdf2ps $target_file $fn");
+
+	case 'postscript':
 }
 
 echo "FICHIER POSTSCRIPT AVANT IMPRESSION: $fn <br>";
