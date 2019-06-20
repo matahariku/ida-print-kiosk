@@ -115,13 +115,11 @@ echo ('<pre> <br>'.shell_exec ("/usr/bin/file $fn").'</pre><br>');
 echo "LANCEMENT DE L'IMPRESSION EN COURS <br>";
 echo ('<pre> <br>'.shell_exec ("/usr/bin/lpr $fn ").'</pre><br>');
 
-echo "MERCI DE VERIFIER LA TABLE PAGE_LOG"
+echo "MERCI DE VERIFIER LA TABLE PAGE_LOG";
 //echo ('<pre> <br>'.shell_exec ("/usr/bin/lpq $fn").'</pre><br>');
 //echo ('<pre> DEBUG<br>'.shell_exec ("/usr/bin/lpstat -W completed $fn").'</pre><br>');
 
 
-// On nettoie avant de sortir
-unlink($fn);
 
 }
 
