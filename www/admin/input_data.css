@@ -1,7 +1,7 @@
 
 
 body {
-	background: url(http://ida.kalou.net/blsi/admin/bois4.jpg) no-repeat center fixed;
+	background: url(http://ida.kalou.net/blsi/admin/kayu6.jpg) no-repeat center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
@@ -11,10 +11,6 @@ h1 {
 }
 form {
 	color:#fff;
-}
- 
-p {
-	color: #fff;
 }
  
 td > input {
