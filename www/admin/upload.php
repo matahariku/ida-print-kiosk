@@ -6,6 +6,7 @@
 // Filtres pour conversion vers Postscript
 //
 // - html2ps, ghostscript (pdf2ps)
+// - cups
 //
 
 // TODO
