@@ -5,3 +5,21 @@ blsi-print-kiosk est un programme php qui permet:
 - la gestion des comptes client (via mariadb)
 - la gestion du nombre de pages imprimees
 - l'historisation des chargements/consommation d'unites d'impression
+
+
+INSTALLATION
+
+$ cd /tmp
+
+$ git clone https://github.com/matahariku/ida-print-kiosk
+Cloning into 'ida-print-kiosk'...
+remote: Enumerating objects: 822, done.
+remote: Counting objects: 100% (822/822), done.
+remote: Compressing objects: 100% (305/305), done.
+remote: Total 822 (delta 492), reused 822 (delta 492), pack-reused 0
+Receiving objects: 100% (822/822), 2.55 MiB | 3.47 MiB/s, done.
+Resolving deltas: 100% (492/492), done.
+
+$ cp -r /tmp/ida-print-kiosk/www <documentroot_of_your_webserver>/ida-print-kiosk
+
+$ cd <documentroot_of_your_webserver>/ida-print-kiosk
