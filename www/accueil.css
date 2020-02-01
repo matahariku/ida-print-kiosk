@@ -1,0 +1,34 @@
+
+
+
+
+body {
+	background: url(http://ida.kalou.net/phpmobilprotec/kayu5.jpg) no-repeat center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+}
+
+center > h1 {
+  color: #fff;
+}
+
+p {
+  color: #fff;
+}
+
+title {
+	color:#fff;
+}
+label {
+  color: #fff;
+}
+value {
+  color: black;
+}
+address {
+	color:#fff;
+}
+td > center > h3 {
+  color: #fff;
+}

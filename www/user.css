@@ -1,0 +1,26 @@
+
+
+body {
+	background: url(http://ida.kalou.net/phpmobilprotec/kayu1.jpg) no-repeat center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+}
+b {
+  color:#fff;
+}
+h1, h4 {
+	color: #fff;
+}
+th {
+  color:#fff;
+}
+td {
+  color: #fff;
+}
+P > a {
+  color:#87CEEB;
+}
+table {
+  color:#fff;
+}
